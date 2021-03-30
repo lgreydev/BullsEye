@@ -20,13 +20,17 @@ class ViewController: UIViewController {
     
     /// By pressing the button calls the alert window with action
     @IBAction func showAlert() {
+        
+        /// Message for alert 'showAlert'
+        let message = "The value of the slider is: \(currentValue)"
+        
         let alert = UIAlertController(
             title: "Hello, Wolrd!",
-            message: "This is my first app!",
+            message: message,
             preferredStyle: .alert)
         
         let action = UIAlertAction(
-            title: "Awesome",
+            title: "Ok",
             style: .default,
             handler: nil)
         
@@ -37,7 +41,7 @@ class ViewController: UIViewController {
     /// Slider in which you can select a value in a specified range.
     /// - Parameter slider: UISlider
     @IBAction func sliderMoved(_ slider: UISlider) {
-        print(#line, "The value of the slider is now: \(slider.value)")
+        currentValue = lroundf(slider.value)
     }
     
     
