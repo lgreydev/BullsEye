@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    /// By pressing the button calls the alert window with action
     @IBAction func showAlert() {
         let alert = UIAlertController(
             title: "Hello, Wolrd!",
@@ -28,4 +29,10 @@ class ViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func sliderMoved(_ slider: UISlider) {
+        print(#line, "The value of the slider is now: \(slider.value)")
+    }
+    
+    
 }
