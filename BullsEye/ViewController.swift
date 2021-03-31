@@ -47,11 +47,14 @@ class ViewController: UIViewController {
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        
+        startNewRound()
     }
     
     /// Slider in which you can select a value in a specified range.
     /// - Parameter slider: UISlider
     @IBAction func sliderMoved(_ slider: UISlider) {
         currentValue = lroundf(slider.value)
+        slider.value = Float(currentValue)
     }
 }
