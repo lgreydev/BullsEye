@@ -19,8 +19,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentValue = lroundf(slider.value)
+        startNewRound()
+    }
+    
+    /// Creates a new game, and sets the default value
+    func startNewRound() {
         targetValue = Int.random(in: 1...100)
+        currentValue = 50
+        slider.value = Float(currentValue)
     }
     
     /// By pressing the button calls the alert window with action
