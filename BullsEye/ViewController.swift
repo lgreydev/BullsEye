@@ -8,21 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     /// Stores of the slider value
     var currentValue: Int = 0
     
+    /// The random number that user will guess
+    var targetValue = 0
+    
+    @IBOutlet var slider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        currentValue = lroundf(slider.value)
+        targetValue = Int.random(in: 1...100)
     }
     
     /// By pressing the button calls the alert window with action
     @IBAction func showAlert() {
         
         /// Message for alert 'showAlert'
-        let message = "The value of the slider is: \(currentValue)"
+        let message = "The value of the slider is: \(currentValue)" + "\nThe target value is: \(targetValue)"
         
         let alert = UIAlertController(
             title: "Hello, Wolrd!",
@@ -43,6 +48,4 @@ class ViewController: UIViewController {
     @IBAction func sliderMoved(_ slider: UISlider) {
         currentValue = lroundf(slider.value)
     }
-    
-    
 }
