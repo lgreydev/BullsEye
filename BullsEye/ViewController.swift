@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     /// The random number that user will guess
     var targetValue = 0
     
+    
+    /// Label for the number to be guessed
+    @IBOutlet var targetLabel: UILabel!
+    
+    /// Label for the slider
     @IBOutlet var slider: UISlider!
     
     override func viewDidLoad() {
