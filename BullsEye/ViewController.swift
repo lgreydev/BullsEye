@@ -44,15 +44,11 @@ class ViewController: UIViewController {
     @IBAction func showAlert() {
         
         /// The difference between the slider and random value
-        var difference: Int
+        var difference = currentValue - targetValue
         
         /// The difference algorithm
-        if currentValue > targetValue {
-            difference = currentValue - targetValue
-        } else if targetValue > currentValue {
-            difference = targetValue - currentValue
-        } else {
-            difference = 0
+        if difference < 0 {
+            difference *= -1
         }
         
         /// Message for alert 'showAlert'
