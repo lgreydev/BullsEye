@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewRound()
+        updateLabels()
     }
     
     /// Creates a new game, and sets the default value
@@ -34,6 +35,11 @@ class ViewController: UIViewController {
         slider.value = Float(currentValue)
     }
     
+    /// Method that updates target value
+    func updateLabels() {
+      targetLabel.text = String(targetValue)
+    }
+
     /// By pressing the button calls the alert window with action
     @IBAction func showAlert() {
         
@@ -54,6 +60,7 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
         startNewRound()
+        updateLabels()
     }
     
     /// Slider in which you can select a value in a specified range.
