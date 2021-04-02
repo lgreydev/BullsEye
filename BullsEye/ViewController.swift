@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     /// The random number that user will guess
     var targetValue = 0
     
-    
     /// Label for the number to be guessed
     @IBOutlet var targetLabel: UILabel!
     
@@ -44,18 +43,12 @@ class ViewController: UIViewController {
     @IBAction func showAlert() {
         
         /// The difference between the slider and random value
-        var difference = currentValue - targetValue
-        
-        /// The difference algorithm
-        if difference < 0 {
-            difference *= -1
-        }
+        let difference = abs(currentValue - targetValue)
         
         /// Message for alert 'showAlert'
         let message = "The value of the slider is: \(currentValue)"
             + "\nThe target value is: \(targetValue)"
             + "\nThe difference is: \(difference)"
-        
         
         let alert = UIAlertController(
             title: "Hello, Wolrd!",
