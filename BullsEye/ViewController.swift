@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Property game
+    // MARK: - Instance variables
     
     /// Stores of the slider value
     var currentValue: Int = 0
@@ -81,16 +81,16 @@ class ViewController: UIViewController {
         /// The number of points that receive the user.
         let points = 100 - difference
         
-        score += points
-        
         /// Message for alert 'showAlert'
         let message = "You scored \(points) points"
         
         /// The alert title
         var title: String {
             if difference == 0 {
+                score += 100
                 return "Perfect!"
             } else if difference < 5 {
+                if difference == 1 { score += 50; return "You almost had it!"}
                 return "You almost had it!"
             } else if difference < 10 {
                 return "Pretty good!"
@@ -98,6 +98,8 @@ class ViewController: UIViewController {
                 return "Not even close..."
             }
         }
+        
+        score += points
         
         let alert = UIAlertController(
             title: title,
