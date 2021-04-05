@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         startNewRound()
     }
-   
+    
     
     
     // MARK: - Method game
@@ -86,14 +86,21 @@ class ViewController: UIViewController {
         /// Message for alert 'showAlert'
         let message = "You scored \(points) points"
         
-        /*
-         "The value of the slider is: \(currentValue)"
-         + "\nThe target value is: \(targetValue)"
-         + "\nThe difference is: \(difference)"
-         */
+        /// The alert title
+        var title: String {
+            if difference == 0 {
+                return "Perfect!"
+            } else if difference < 5 {
+                return "You almost had it!"
+            } else if difference < 10 {
+                return "Pretty good!"
+            } else {
+                return "Not even close..."
+            }
+        }
         
         let alert = UIAlertController(
-            title: "Hello, Wolrd!",
+            title: title,
             message: message,
             preferredStyle: .alert)
         
