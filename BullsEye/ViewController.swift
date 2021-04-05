@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Property game
+    
     /// Stores of the slider value
     var currentValue: Int = 0
     
@@ -17,6 +19,13 @@ class ViewController: UIViewController {
     
     /// Variable saves a common account
     var score = 0
+    
+    /// Round current game
+    var round = 0
+    
+    
+    
+    // MARK: - IBOutlet
     
     /// Label for the number to be guessed
     @IBOutlet var targetLabel: UILabel!
@@ -27,25 +36,42 @@ class ViewController: UIViewController {
     /// Label for the score
     @IBOutlet weak var scoreLabel: UILabel!
     
+    /// Label for the round game
+    @IBOutlet weak var roundLabel: UILabel!
+    
+    
+    
+    // MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewRound()
     }
+   
+    
+    
+    // MARK: - Method game
     
     /// Creates a new game, and sets the default value
     func startNewRound() {
+        round += 1
         targetValue = Int.random(in: 1...100)
         currentValue = 50
         slider.value = Float(currentValue)
         updateLabels()
-        scoreLabel.text = String(score)
     }
     
     /// Method that updates target value
     func updateLabels() {
-      targetLabel.text = String(targetValue)
+        targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
     }
-
+    
+    
+    
+    // MARK: - IBAction
+    
     /// By pressing the button calls the alert window with action
     @IBAction func showAlert() {
         
@@ -61,10 +87,10 @@ class ViewController: UIViewController {
         let message = "You scored \(points) points"
         
         /*
-            "The value of the slider is: \(currentValue)"
-            + "\nThe target value is: \(targetValue)"
-            + "\nThe difference is: \(difference)"
-        */
+         "The value of the slider is: \(currentValue)"
+         + "\nThe target value is: \(targetValue)"
+         + "\nThe difference is: \(difference)"
+         */
         
         let alert = UIAlertController(
             title: "Hello, Wolrd!",
